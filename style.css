@@ -220,6 +220,7 @@ main.main-content {
 }
 
 /* 頂部導航 */
+/* 頂部導航 */
 nav.top-nav {
   padding: 20px 40px;
   display: flex;
@@ -227,26 +228,39 @@ nav.top-nav {
   flex-wrap: wrap;
 }
 
+/* 一般狀態：深灰＋陰影 */
 .nav-button {
   padding: 10px 26px;
-  background: #4F9D9D;
+  background: #181818;                 /* 深灰接近黑 */
   border-radius: 999px;
-  border: 1px solid #3a3a3a;
-  color: var(--main-text);
+  border: 1px solid #2f2f2f;
+  color: var(--main-text);             /* 乳白字 */
   font-size: 15px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.2s ease,
+              transform 0.15s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);   /* 陰影感 */
 }
 
-.nav-button.active {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px #ECFFFF;
-  background: #4F9D9D;
-}
-
+/* hover：稍微變亮＋浮起一點 */
 .nav-button:hover {
-  background: #66B3FF;
+  background: #242424;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.8);
+  transform: translateY(-1px);
+}
+
+/* active：反白＋字變黑 */
+.nav-button.active {
+  background: #f8f9fa;                 /* 幾乎白，但略帶灰，避免太刺眼 */
+  color: #111111;                      /* 黑字 */
+  border-color: #111111;               /* 邊框加深 */
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.8),
+    0 6px 16px rgba(0, 0, 0, 0.6);
+  transform: translateY(0);            /* 選中的時候不要再往上浮太多 */
 }
 
 
