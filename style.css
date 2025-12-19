@@ -444,11 +444,11 @@ nav.top-nav {
   display: block;
 }
 .article-view h1 {
-  color: var(--accent-dark);
+  color: #003D79;                 /* ← 主標題文字顏色 */
   font-size: 34px;
   margin-bottom: 8px;
   padding-bottom: 16px;
-  border-bottom: 3px solid var(--accent);
+  border-bottom: 3px solid #003D79;  /* ← 底線顏色，也可以一起換 */
 }
 .article-view .meta {
   color: #6b7280;
@@ -460,6 +460,22 @@ nav.top-nav {
   font-size: 17px;
   line-height: 1.9;
   margin-bottom: 18px;
+}
+
+/* 文章內小節標題：例如 🌍 氣候變遷下的城市挑戰 */
+.article-subtitle {
+  font-size: 20px;
+  font-weight: 700;              /* 粗體 */
+  color: #00b4d8;                /* 小標題顏色，可調整 */
+  margin: 32px 0 10px;           /* 與上下文字間距 */
+  padding-top: 18px;
+  border-top: 1px solid #3a3a3a; /* 上方分隔線 */
+}
+
+/* 第一個小標題如果不想要上面的線，可以把這條加進去 */
+.article-subtitle:first-of-type {
+  border-top: none;
+  padding-top: 0;
 }
 
 /* 返回按鈕 */
