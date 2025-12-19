@@ -379,6 +379,8 @@ nav.top-nav {
   font-size: 14px;
   color: #ced4da;
   line-height: 1.7;
+  text-align: justify;        /* 這裡也左右對齊 */
+  text-justify: inter-word;
 }
 
 /* 類別標籤 */
@@ -455,11 +457,14 @@ nav.top-nav {
   font-size: 14px;
   margin-bottom: 24px;
 }
+
 .article-view p {
-  color: #111827;
-  font-size: 17px;
-  line-height: 1.9;
-  margin-bottom: 18px;
+  color: #111827;          /* 內文字色，如果你原本有別的顏色就沿用 */
+  font-size: 16px;         /* 字體大小 */
+  line-height: 1.8;        /* 行距 */
+  margin: 0 0 14px;
+  text-align: justify;     /* ★ 左右對齊 */
+  text-justify: inter-word;/* ★ 空白平均分配（支援的瀏覽器會用） */
 }
 
 /* 文章內小節標題：例如 🌍 氣候變遷下的城市挑戰 */
@@ -474,15 +479,15 @@ nav.top-nav {
 
 /* 第三層標題：比 h2 小一點，沒有上方分隔線 */
 .article-subtitle-3 {
-  font-size: 16px;          /* ← 在這裡改字體大小 */
-  font-weight: 600;         /* ← 粗細 */
+  font-size: 12px;          /* ← 在這裡改字體大小 */
+  font-weight: 700;         /* ← 粗細 */
   color: #984B4B;           /* ← 在這裡改顏色 */
-  margin: 16px 0 6px;       /* 與上下段落的距離 */
+  margin: 12px 0 6px;       /* 與上下段落的距離 */
 }
 
 .article-view strong {
   font-weight: 700;
-  color: #ffffff;   /* 比內文稍微白一點 */
+  color: #642100;   
 }
 
 /* 第一個小標題如果不想要上面的線，可以把這條加進去 */
