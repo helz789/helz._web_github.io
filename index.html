@@ -4,330 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>我的個人網站</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      min-height: 100vh;
-      overflow: auto;
-    }
-
-    /* 左側邊欄 */
-    .sidebar {
-      width: 500px;
-      background: linear-gradient(180deg, #2e0208 0%, #0f0202 100%);
-      padding: 30px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      overflow-y: auto;
-    }
-
-    /* 大頭照 */
-    .profile-photo{
-        width: 250px;
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-
-    .profile-photo img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: cover;
-        object-position: center;
-    }
-
-    /* 統一清空外距，避免與 gap 疊加 */
-    .sidebar > .info-section,
-    .sidebar > .experience-section,
-    .sidebar > .skills-section {
-      margin: 0;
-    }
-
-    /* 資訊區塊 */
-    .info-section {
-      width: 100%;
-      padding: 20px;
-      background: linear-gradient(135deg, #d9d9d6 0%, #d9d9d6 100%);
-      border: 2px solid #ffffff;
-      color: #000;
-    }
-    .info-section h3 {
-      font-size: 24px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 4px;
-      margin-bottom: 12px;
-      font-size: 20px;
-      line-height: 1.5;
-      word-break: break-word;
-    }
-    .info-item:last-child { margin-bottom: 0; }
-    .info-item strong { min-width: 80px; font-weight: 600; }
-    .info-item a {
-      color: #000; text-decoration: none;
-      word-break: break-all;
-    }
-    .info-item a:hover { text-decoration: underline; }
-
-    /* 經歷區塊 */
-    .experience-section {
-      width: 100%;
-      padding: 20px;
-      background: linear-gradient(135deg, #d9d9d6 0%, #d9d9d6 100%);
-      border: 2px solid #ffffff;
-      color: #000;
-    }
-    .experience-section h3 {
-      font-size: 24px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 12px;
-      letter-spacing: 1px;
-    }
-    .experience-item{
-      padding: 10px 0;
-      border-bottom: 1px dashed rgba(0,0,0,.12);
-      display: block;
-      font-size: 18px;
-      margin: 0 0 12px;
-    }
-    .experience-item:last-child{
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .school-line{
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      font-size: 20px;
-      font-weight: 700;
-    }
-    .school-line .years{
-      font-size: 16px;
-      color: rgba(0,0,0,.55);
-      font-weight: 600;
-    }
-    .dept{
-      margin-top: 2px;
-      font-size: 16px;
-      color: rgba(0,0,0,.6);
-      line-height: 1.4;
-    }
-
-    /* Skills（10 格箱型條） */
-    .skills-section{
-      width: 100%;
-      padding: 12px;
-      background: linear-gradient(135deg, #d9d9d6 0%, #d9d9d6 100%);
-      border: 2px solid #ffffff;
-      color: #000;
-    }
-    .skills-section h3{
-      font-size: 24px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 18px;
-      letter-spacing: 1px;
-    }
-    .skill{ margin: 12px 0 16px; }
-    .skill:last-child { margin-bottom: 0; }
-    .skill .label{
-      display:flex; justify-content: space-between; align-items: baseline;
-      margin-bottom: 6px; font-size: 18px;
-    }
-    .skill .label .name{ font-weight: 700; }
-    .skill .label .level-text{ color: rgba(0,0,0,.55); font-size: 14px; }
-
-    .boxes{ display: flex; gap: 6px; }
-    .boxes .box{
-      width: calc((100% - 6px*9)/10);
-      height: 12px;
-      background: #e5e7eb;
-      border-radius: 4px;
-      outline: 1px solid #d1d5db;
-      outline-offset: -1px;
-    }
-    .boxes .box.filled{
-      background: #4a7bc8;
-      outline-color: rgba(74,123,200,.9);
-    }
-
-    /* 主內容區 */
-    .main-content {
-      flex: 1;
-      background: linear-gradient(135deg, #8fa8c5 0%, #a8b9cf 100%);
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* 頂部導航 */
-    .top-nav {
-      padding: 20px 40px;
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .nav-button {
-      padding: 15px 40px;
-      background: transparent;
-      border: 3px solid #5b8fd9;
-      color: white;
-      font-size: 18px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .nav-button.active { background: linear-gradient(135deg, #5b8fd9 0%, #4a7bc8 100%); }
-    .nav-button:hover { background: linear-gradient(135deg, #5b8fd9 0%, #4a7bc8 100%); }
-
-    /* 內容區 */
-    .content-area {
-      padding: 30px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    .page { display: none; }
-    .page.active {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-
-    /* 文章卡片 */
-    .article-card {
-      background: linear-gradient(135deg, #5b8fd9 0%, #7aa2e3 100%);
-      border: 2px solid #4a7bc8;
-      padding: 80px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 32px;
-      font-weight: 600;
-      min-height: 200px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .article-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-
-    /* 興趣卡片 */
-    .interest-card {
-      background: linear-gradient(135deg, #5b8fd9 0%, #7aa2e3 100%);
-      border: 2px solid #4a7bc8;
-      padding: 40px;
-      color: white;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .interest-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    .interest-card h3 {
-      font-size: 28px;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    .interest-card p { font-size: 16px; line-height: 1.8; margin-bottom: 15px; }
-    .interest-card a { color: white; text-decoration: underline; font-weight: 600; }
-
-    /* 文章頁面 */
-    .article-page {
-      display: none;
-      padding: 30px 40px;
-      background: linear-gradient(135deg, #8fa8c5 0%, #a8b9cf 100%);
-      min-height: 100vh;
-    }
-    .article-page.active { display: block; }
-    .article-content {
-      background: white;
-      padding: 60px;
-      border-radius: 10px;
-      max-width: 900px;
-      margin: 0 auto;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    .article-content h1 {
-      color: #4a7bc8;
-      font-size: 42px;
-      margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 3px solid #5b8fd9;
-    }
-    .article-content .meta {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 30px;
-    }
-    .article-content p {
-      color: #333;
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-    .back-button {
-      display: inline-block;
-      padding: 12px 30px;
-      background: linear-gradient(135deg, #5b8fd9 0%, #4a7bc8 100%);
-      color: white;
-      border: none;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-bottom: 30px;
-      transition: all 0.3s ease;
-    }
-    .back-button:hover {
-      transform: translateX(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-
-    /* 響應式設計 */
-    @media (max-width: 768px) {
-      body { flex-direction: column; }
-      .sidebar { width: 100%; padding: 20px; }
-      .profile-photo { width: 120px; height: 120px; }
-      .top-nav { padding: 15px 20px; }
-      .content-area { padding: 20px; }
-      .article-card { padding: 60px 20px; font-size: 24px; }
-      .article-content { padding: 30px 20px; }
-      .article-content h1 { font-size: 32px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-   <!-- 左側邊欄 -->
-   <div class="sidebar">
-    <!-- 大頭照 - 改成相對路徑 -->
+  <!-- 左側邊欄：個人資訊與經歷 -->
+  <aside class="sidebar" aria-label="個人資訊與經歷">
+    <!-- 大頭照 -->
     <div class="profile-photo">
-        <img src="profile.jpg" alt="我的照片">
+      <img src="profile.jpg" alt="個人照片">
     </div>
 
     <!-- 個人資訊 -->
-    <div class="info-section">
+    <section class="info-section" aria-label="聯絡資訊">
       <h3>Some Information</h3>
       <div class="info-item">
         <strong>Instagram:</strong>
-        <a href="https://www.instagram.com/hui_yun__/" target="_blank">@hui_yun__</a>
+        <a href="https://www.instagram.com/hui_yun__/" target="_blank" rel="noopener noreferrer">
+          @hui_yun__
+        </a>
       </div>
       <div class="info-item">
         <strong>Email:</strong>
@@ -337,10 +32,10 @@
         <strong>Address:</strong>
         <span>Taiwan, New Taipei City</span>
       </div>
-    </div>
+    </section>
 
     <!-- 經歷 -->
-    <div class="experience-section">
+    <section class="experience-section" aria-label="學歷與經歷">
       <h3>My Experience</h3>
 
       <div class="experience-item">
@@ -374,10 +69,10 @@
         </div>
         <div class="dept">空間資料分析與地圖視覺化應用</div>
       </div>
-    </div>
+    </section>
 
     <!-- Skills -->
-    <div class="skills-section">
+    <section class="skills-section" aria-label="技能">
       <h3>Skills</h3>
 
       <div class="skill">
@@ -385,7 +80,7 @@
           <span class="name">Geographic Information System</span>
           <span class="level-text">8 / 10</span>
         </div>
-        <div class="boxes">
+        <div class="boxes" aria-hidden="true">
           <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span>
         </div>
       </div>
@@ -395,7 +90,7 @@
           <span class="name">Water Resource</span>
           <span class="level-text">8 / 10</span>
         </div>
-        <div class="boxes">
+        <div class="boxes" aria-hidden="true">
           <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span>
         </div>
       </div>
@@ -405,7 +100,7 @@
           <span class="name">Python (Pandas / GDAL / Rasterio)</span>
           <span class="level-text">3 / 10</span>
         </div>
-        <div class="boxes">
+        <div class="boxes" aria-hidden="true">
           <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span><span class="box"></span><span class="box"></span><span class="box"></span><span class="box"></span><span class="box"></span>
         </div>
       </div>
@@ -415,136 +110,105 @@
           <span class="name">Web (HTML/CSS/JS)</span>
           <span class="level-text">4 / 10</span>
         </div>
-        <div class="boxes">
+        <div class="boxes" aria-hidden="true">
           <span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box filled"></span><span class="box"></span><span class="box"></span><span class="box"></span><span class="box"></span><span class="box"></span><span class="box"></span>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </aside>
 
   <!-- 主內容區 -->
-  <div class="main-content">
+  <main class="main-content">
     <!-- 頂部導航 -->
-    <div class="top-nav">
-      <button class="nav-button active" onclick="switchPage(this,'home')">MY HOME PAGE</button>
-      <button class="nav-button" onclick="switchPage(this,'interest')">INTEREST PAGE</button>
-    </div>
+    <nav class="top-nav" aria-label="主要導航">
+      <button class="nav-button active" type="button" data-page="home">
+        MY HOME PAGE
+      </button>
+      <button class="nav-button" type="button" data-page="interest">
+        INTEREST PAGE
+      </button>
+    </nav>
 
     <!-- 內容區 -->
     <div class="content-area">
       <!-- 首頁 -->
-      <div id="home-page" class="page active">
-        <div class="article-card" onclick="openArticle(1)">研究專案：淡水河流域分析</div>
-        <div class="article-card" onclick="openArticle(2)">技術分享：Python 自動化處理 GIS 資料</div>
-        <div class="article-card" onclick="openArticle(3)">學習筆記：水資源管理與永續發展</div>
-      </div>
+      <section id="home-page" class="page active" aria-label="首頁">
+        <button class="article-card" type="button" data-article-target="article-1">
+          研究專案：淡水河流域分析
+        </button>
+        <button class="article-card" type="button" data-article-target="article-2">
+          技術分享：Python 自動化處理 GIS 資料
+        </button>
+        <button class="article-card" type="button" data-article-target="article-3">
+          學習筆記：水資源管理與永續發展
+        </button>
+      </section>
 
       <!-- 興趣頁面 -->
-      <div id="interest-page" class="page">
+      <section id="interest-page" class="page" aria-label="興趣頁面">
         <div class="interest-card">
           <h3>🎨 空間美學</h3>
           <p>對於地理空間資料的視覺化呈現充滿熱情，喜歡透過地圖設計讓複雜的空間資訊變得易於理解。持續探索如何結合美學與功能性，創造出既美觀又實用的地圖作品。</p>
-          <p>推薦網站：<a href="https://dribbble.com" target="_blank">Dribbble</a> - 設計靈感來源</p>
+          <p>推薦網站：
+            <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
+              Dribbble
+            </a> - 設計靈感來源
+          </p>
         </div>
         <div class="interest-card">
           <h3>💻 體育產業與地理空間資訊之連動</h3>
           <p>研究運動設施分佈、賽事路線規劃等空間議題，探索如何運用 GIS 技術優化體育場館配置，以及分析運動人口與空間環境的關係，為運動產業提供數據支持。</p>
-          <p>推薦資源：<a href="https://www.esri.com/en-us/industries/sports" target="_blank">Esri Sports</a> - GIS 在體育的應用</p>
+          <p>推薦資源：
+            <a href="https://www.esri.com/en-us/industries/sports" target="_blank" rel="noopener noreferrer">
+              Esri Sports
+            </a> - GIS 在體育的應用
+          </p>
         </div>
         <div class="interest-card">
           <h3>📚 Python 之於 GIS</h3>
           <p>專注於使用 Python 進行地理空間資料處理與分析，熟悉 GDAL、Rasterio、Pandas 等套件。目標是提升空間資料處理效率，建立自動化分析流程。</p>
-          <p>推薦網站：<a href="https://automating-gis-processes.github.io/" target="_blank">Automating GIS Processes</a> - Python GIS 教學</p>
+          <p>推薦網站：
+            <a href="https://automating-gis-processes.github.io/" target="_blank" rel="noopener noreferrer">
+              Automating GIS Processes
+            </a> - Python GIS 教學
+          </p>
         </div>
-      </div>
+      </section>
     </div>
 
     <!-- 文章頁面 -->
-    <div id="article-page" class="article-page">
-      <button class="back-button" onclick="closeArticle()">← 返回首頁</button>
-      <div class="article-content">
-        <h1 id="article-title">文章標題</h1>
-        <div class="meta" id="article-meta">發布日期：2024年11月12日</div>
-        <div id="article-body">
-          <p>這裡是文章的內容</p>
-        </div>
-      </div>
-    </div>
-  </div>
+    <section id="article-page" class="article-page" aria-label="文章內容">
+      <button class="back-button" type="button" data-role="back-home">
+        ← 返回首頁
+      </button>
 
-  <script>
-    // 文章資料
-    const articles = {
-      1: {
-        title: "研究專案：淡水河流域分析",
-        date: "2024年11月12日",
-        content: `
-          <p>本專案運用 GIS 技術分析淡水河流域的水文特性，結合歷史降雨資料與地形資料，建立流域模型以預測洪水風險區域。</p>
-          <p>透過 Python 自動化處理大量衛星影像與氣象資料，成功繪製出高精度的流域風險地圖，可作為都市規劃與防災決策的參考依據。</p>
-          <p>此研究展現了地理資訊系統在水資源管理領域的應用價值，未來將持續優化模型精度，並擴展至其他流域的分析。</p>
-        `
-      },
-      2: {
-        title: "技術分享：Python 自動化處理 GIS 資料",
-        date: "2024年11月10日",
-        content: `
-          <p>在處理大量地理空間資料時，手動操作既耗時又容易出錯。透過 Python 腳本可以大幅提升工作效率。</p>
-          <p>本文分享如何使用 GDAL 和 Rasterio 批次處理衛星影像，包括影像裁切、投影轉換、波段運算等常見操作。搭配 Pandas 進行屬性資料管理，建立完整的自動化工作流程。</p>
-          <p>這些技術不僅提升了工作效率，也讓分析結果更具可重現性，是 GIS 從業人員值得學習的技能。</p>
-        `
-      },
-      3: {
-        title: "學習筆記：水資源管理與永續發展",
-        date: "2024年11月8日",
-        content: `
-          <p>在氣候變遷的挑戰下，水資源管理已成為全球關注的議題。如何在滿足人類需求與維護生態平衡之間取得平衡，是當代重要課題。</p>
-          <p>透過 GIS 技術可以整合水文、氣象、土地利用等多元資料，建立決策支援系統。這些系統能協助政府與企業制定更有效的水資源管理策略。</p>
-          <p>永續發展不僅是環境保護，更是確保未來世代也能享有充足資源的責任。作為水利相關領域的研究者，期許能為這個目標貢獻一份心力。</p>
-        `
-      }
-    };
+      <!-- 文章 1 -->
+      <article id="article-1" class="article-view active">
+        <h1>研究專案：淡水河流域分析</h1>
+        <div class="meta">發布日期：2024年11月12日</div>
+        <p>本專案運用 GIS 技術分析淡水河流域的水文特性，結合歷史降雨資料與地形資料，建立流域模型以預測洪水風險區域。</p>
+        <p>透過 Python 自動化處理大量衛星影像與氣象資料，成功繪製出高精度的流域風險地圖，可作為都市規劃與防災決策的參考依據。</p>
+        <p>此研究展現了地理資訊系統在水資源管理領域的應用價值，未來將持續優化模型精度，並擴展至其他流域的分析。</p>
+      </article>
 
-    // 切換頁面
-    function switchPage(btn, page) {
-      // 更新導航按鈕狀態
-      document.querySelectorAll('.nav-button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      <!-- 文章 2 -->
+      <article id="article-2" class="article-view">
+        <h1>技術分享：Python 自動化處理 GIS 資料</h1>
+        <div class="meta">發布日期：2024年11月10日</div>
+        <p>在處理大量地理空間資料時，手動操作既耗時又容易出錯。透過 Python 腳本可以大幅提升工作效率。</p>
+        <p>本文分享如何使用 GDAL 和 Rasterio 批次處理衛星影像，包括影像裁切、投影轉換、波段運算等常見操作。搭配 Pandas 進行屬性資料管理，建立完整的自動化工作流程。</p>
+        <p>這些技術不僅提升了工作效率，也讓分析結果更具可重現性，是 GIS 從業人員值得學習的技能。</p>
+      </article>
 
-      // 顯示對應頁面
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      if (page === 'home') {
-        document.getElementById('home-page').classList.add('active');
-      } else if (page === 'interest') {
-        document.getElementById('interest-page').classList.add('active');
-      }
-
-      // 確保文章頁面關閉
-      document.getElementById('article-page').classList.remove('active');
-      document.querySelector('.content-area').style.display = 'flex';
-    }
-
-    // 開啟文章
-    function openArticle(articleId) {
-      const article = articles[articleId];
-      if (!article) return;
-
-      document.getElementById('article-title').textContent = article.title;
-      document.getElementById('article-meta').textContent = `發布日期：${article.date}`;
-      document.getElementById('article-body').innerHTML = article.content;
-
-      // 隱藏內容區，顯示文章頁面
-      document.querySelector('.content-area').style.display = 'none';
-      document.getElementById('article-page').classList.add('active');
-
-      // 捲動到頂部
-      document.querySelector('.main-content').scrollTop = 0;
-    }
-
-    // 關閉文章
-    function closeArticle() {
-      document.getElementById('article-page').classList.remove('active');
-      document.querySelector('.content-area').style.display = 'flex';
-    }
-  </script>
+      <!-- 文章 3 -->
+      <article id="article-3" class="article-view">
+        <h1>學習筆記：水資源管理與永續發展</h1>
+        <div class="meta">發布日期：2024年11月8日</div>
+        <p>在氣候變遷的挑戰下，水資源管理已成為全球關注的議題。如何在滿足人類需求與維護生態平衡之間取得平衡，是當代重要課題。</p>
+        <p>透過 GIS 技術可以整合水文、氣象、土地利用等多元資料，建立決策支援系統。這些系統能協助政府與企業制定更有效的水資源管理策略。</p>
+        <p>永續發展不僅是環境保護，更是確保未來世代也能享有充足資源的責任。作為水利相關領域的研究者，期許能為這個目標貢獻一份心力。</p>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
