@@ -229,7 +229,7 @@ nav.top-nav {
 
 .nav-button {
   padding: 10px 26px;
-  background: #5CADAD;
+  background: #4F9D9D;
   border-radius: 999px;
   border: 1px solid #3a3a3a;
   color: var(--main-text);
@@ -241,12 +241,12 @@ nav.top-nav {
 
 .nav-button.active {
   border-color: var(--accent);
-  box-shadow: 0 0 0 1px rgba(0, 180, 216, 0.4);
-  background: #2f2f2f;
+  box-shadow: 0 0 0 1px #ECFFFF;
+  background: #4F9D9D;
 }
 
 .nav-button:hover {
-  background: #303030;
+  background: #66B3FF;
 }
 
 
