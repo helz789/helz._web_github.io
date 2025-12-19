@@ -15,9 +15,9 @@
   --accent: #1d4ed8;          /* 深藍 */
   --accent-dark: #1e3a8a;     /* 更深的藍 */
 
-  --card-bg-start: var(--accent);
-  --card-bg-end: var(--accent-dark);
-  --card-border: var(--accent);
+  --card-bg-start: #0b1220;   /* 接近背景，但稍微亮一階 */
+  --card-bg-end:   #111827;
+  --card-border:   #38bdf8;   /* 淺青藍邊框 */
 
   --panel-bg: #e5e5e0;        /* 淺灰米色 */
 }
@@ -278,7 +278,8 @@ nav.top-nav {
 }
 .article-card:hover {
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.6);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+  border-color: #7dd3fc;  /* hover 時邊框稍微更亮 */
 }
 
 /* 興趣卡片 */
