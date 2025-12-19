@@ -330,6 +330,88 @@ nav.top-nav {
   font-weight: 500;
 }
 
+/* Timeline 動態列表 */
+.micro-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.micro-post {
+  background: #262626;
+  border-radius: 14px;
+  border: 1px solid #343a40;
+  padding: 16px 18px 14px;
+  color: var(--main-text);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.65);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.micro-post:hover {
+  transform: translateY(-2px);
+  border-color: #4dabf7;  /* hover 微藍 */
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.85);
+}
+
+.micro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: #adb5bd;
+}
+
+.micro-date {
+  font-variant-numeric: tabular-nums;
+}
+
+.micro-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 4px 0 4px;
+  color: var(--main-text);
+}
+
+.micro-body {
+  font-size: 14px;
+  color: #ced4da;
+  line-height: 1.7;
+}
+
+/* 類別標籤 */
+.micro-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.micro-tag-research {
+  background: rgba(0, 180, 216, 0.12);
+  color: #4dabf7;
+}
+
+.micro-tag-competition {
+  background: rgba(248, 181, 0, 0.12);
+  color: #fbbf24;
+}
+
+.micro-tag-tech {
+  background: rgba(96, 165, 250, 0.12);
+  color: #60a5fa;
+}
+
+.micro-tag-life {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+}
 
 /* 文章頁面 */
 .article-page {
