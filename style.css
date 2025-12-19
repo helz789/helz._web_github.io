@@ -472,6 +472,19 @@ nav.top-nav {
   border-top: 1px solid #3a3a3a; /* 上方分隔線 */
 }
 
+/* 第三層標題：比 h2 小一點，沒有上方分隔線 */
+.article-subtitle-3 {
+  font-size: 16px;          /* ← 在這裡改字體大小 */
+  font-weight: 600;         /* ← 粗細 */
+  color: #984B4B;           /* ← 在這裡改顏色 */
+  margin: 16px 0 6px;       /* 與上下段落的距離 */
+}
+
+.article-view strong {
+  font-weight: 700;
+  color: #ffffff;   /* 比內文稍微白一點 */
+}
+
 /* 第一個小標題如果不想要上面的線，可以把這條加進去 */
 .article-subtitle:first-of-type {
   border-top: none;
