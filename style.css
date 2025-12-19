@@ -466,7 +466,7 @@ nav.top-nav {
 .article-subtitle {
   font-size: 20px;
   font-weight: 700;              /* 粗體 */
-  color: #00b4d8;                /* 小標題顏色，可調整 */
+  color: #336666;                /* 小標題顏色，可調整 */
   margin: 32px 0 10px;           /* 與上下文字間距 */
   padding-top: 18px;
   border-top: 1px solid #3a3a3a; /* 上方分隔線 */
