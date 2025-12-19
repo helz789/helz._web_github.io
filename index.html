@@ -125,7 +125,7 @@
         MY HOME PAGE
       </button>
       <button class="nav-button" type="button" data-page="interest">
-        INTEREST PAGE
+        TIMELINE / 活動紀錄
       </button>
     </nav>
 
@@ -134,44 +134,67 @@
       <!-- 首頁 -->
       <section id="home-page" class="page active" aria-label="首頁">
         <button class="article-card" type="button" data-article-target="article-1">
-          研究專案：淡水河流域分析
+          [碩士論文] 水-能源-糧食面向下高雄市生態系服務供需與熱點分析
         </button>
         <button class="article-card" type="button" data-article-target="article-2">
-          技術分享：Python 自動化處理 GIS 資料
+          [技術分享] 使用 Python自動化處理 GIS資料需要注意哪些事?
         </button>
         <button class="article-card" type="button" data-article-target="article-3">
-          學習筆記：水資源管理與永續發展
+          [比賽紀錄] 2023年棒球大專盃-公開女子組
         </button>
       </section>
 
       <!-- 興趣頁面 -->
-      <section id="interest-page" class="page" aria-label="興趣頁面">
-        <div class="interest-card">
-          <h3>🎨 空間美學</h3>
-          <p>對於地理空間資料的視覺化呈現充滿熱情，喜歡透過地圖設計讓複雜的空間資訊變得易於理解。持續探索如何結合美學與功能性，創造出既美觀又實用的地圖作品。</p>
-          <p>推薦網站：
-            <a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">
-              Dribbble
-            </a> - 設計靈感來源
-          </p>
-        </div>
-        <div class="interest-card">
-          <h3>💻 體育產業與地理空間資訊之連動</h3>
-          <p>研究運動設施分佈、賽事路線規劃等空間議題，探索如何運用 GIS 技術優化體育場館配置，以及分析運動人口與空間環境的關係，為運動產業提供數據支持。</p>
-          <p>推薦資源：
-            <a href="https://www.esri.com/en-us/industries/sports" target="_blank" rel="noopener noreferrer">
-              Esri Sports
-            </a> - GIS 在體育的應用
-          </p>
-        </div>
-        <div class="interest-card">
-          <h3>📚 Python 之於 GIS</h3>
-          <p>專注於使用 Python 進行地理空間資料處理與分析，熟悉 GDAL、Rasterio、Pandas 等套件。目標是提升空間資料處理效率，建立自動化分析流程。</p>
-          <p>推薦網站：
-            <a href="https://automating-gis-processes.github.io/" target="_blank" rel="noopener noreferrer">
-              Automating GIS Processes
-            </a> - Python GIS 教學
-          </p>
+      <section id="interest-page" class="page" aria-label="Timeline 動態紀錄">
+        <div class="micro-feed">
+
+          <!-- 一則動態：研究 -->
+          <article class="micro-post">
+            <header class="micro-header">
+              <span class="micro-tag micro-tag-research">Research</span>
+              <time datetime="2024-11-15" class="micro-date">2024-11-15</time>
+            </header>
+            <h3 class="micro-title">完成淡水河流域洪水風險圖第一版</h3>
+            <p class="micro-body">
+              用 Python 批次處理歷史降雨與地形資料，跑完第一版 HEC-HMS 模擬，現在正在比對歷史洪水事件做誤差檢查。
+            </p>
+          </article>
+
+          <!-- 一則動態：比賽 -->
+          <article class="micro-post">
+            <header class="micro-header">
+              <span class="micro-tag micro-tag-competition">Competition</span>
+              <time datetime="2024-10-28" class="micro-date">2024-10-28</time>
+            </header>
+            <h3 class="micro-title">系隊壘球聯賽：先發投手與內野守備默契調整</h3>
+            <p class="micro-body">
+              這週比賽正式把練習中的投球路線分析搬上場，刻意多丟外角高球來壓制強打者，準備之後用數據把投球 heatmap 整理成圖。
+            </p>
+          </article>
+
+          <!-- 一則動態：技術 -->
+          <article class="micro-post">
+            <header class="micro-header">
+              <span class="micro-tag micro-tag-tech">Tech</span>
+              <time datetime="2024-10-10" class="micro-date">2024-10-10</time>
+            </header>
+            <h3 class="micro-title">第一個完整 GIS 自動化腳本</h3>
+            <p class="micro-body">
+              用 Python + Rasterio 寫完從裁切、投影轉換到 reclass 的一條龍腳本，終於不用再一張一張用 QGIS 點來點去了。
+            </p>
+          </article>
+
+          <!-- 一則動態：Life / 雜記 -->
+          <article class="micro-post">
+            <header class="micro-header">
+              <span class="micro-tag micro-tag-life">Life</span>
+              <time datetime="2024-09-20" class="micro-date">2024-09-20</time>
+            </header>
+            <h3 class="micro-title">開始整理個人網站與作品集</h3>
+            <p class="micro-body">
+              決定把研究、比賽、技術學習全部集中在這個網站，讓之後申請工作或分享給朋友時，有一個可以直接丟出去的連結。
+            </p>
+          </article>
         </div>
       </section>
     </div>
