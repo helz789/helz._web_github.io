@@ -16,9 +16,9 @@
   --accent: #00b4d8;
   --accent-dark: #0090ad;
 
-  /* 卡片背景與邊框：微光灰 + 天藍描邊 */
   --card-bg: #2c2c2c;
-  --card-border: #00b4d8;
+  --card-border: #343a40;         /* 平常的卡片邊框：低調深灰 */
+  --card-border-hover: #4dabf7;   /* hover 時才用的柔和藍 */
 
   /* 乳白文字（主內容區使用） */
   --main-text: #e9ecef;
@@ -269,31 +269,28 @@ nav.top-nav {
 
 /* 文章卡片：主頁卡片 */
 .article-card {
-  background: var(--card-bg);   /* #2C2C2C */
+  background: var(--card-bg);
   border-radius: 16px;
-  border: 1px solid var(--card-border);  /* #00B4D8 */
+  border: 1px solid var(--card-border);   /* 深灰邊框 */
   padding: 32px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--main-text);      /* 乳白文字 */
+  color: var(--main-text);
   font-size: 22px;
   font-weight: 600;
   min-height: 120px;
   cursor: pointer;
   transition: all 0.22s ease;
   text-align: left;
-  box-shadow:
-    0 0 0 1px rgba(0, 180, 216, 0.25),    /* 細藍描邊 */
-    0 10px 24px rgba(0, 0, 0, 0.7);       /* 底部陰影 */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);  /* 只保留陰影，不再有藍光圈 */
 }
 
 .article-card:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 0 0 1px rgba(0, 180, 216, 0.5),
-    0 16px 36px rgba(0, 0, 0, 0.85);
-  background: #343434;                      /* hover 時稍微亮一點 */
+  border-color: var(--card-border-hover);      /* hover 時邊框變淡藍 */
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85);
+  background: #343434;
 }
 
 
@@ -312,7 +309,7 @@ nav.top-nav {
 .interest-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.85);
-  border-color: rgba(0, 180, 216, 0.5);
+  border-color: var(--card-border-hover);
 }
 
 .interest-card h3 {
